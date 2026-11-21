@@ -53,6 +53,8 @@ function errorMessage(code: string, attemptsLeft?: number): string {
       return "You are already marked present for this session.";
     case "not_enrolled":
       return "You are not enrolled in this program.";
+    case "excused_absence":
+      return "You have an excused absence for this session and cannot check in.";
     default:
       return "Something went wrong. Please try again.";
   }
@@ -285,6 +287,14 @@ export default function AttendanceRoomClient({ programId, roomId }: Props) {
         <p className="mt-2 text-sm text-zinc-600">
           Enter today&apos;s 6-digit code from your teacher, then find your name.
         </p>
+        {useProgramLink && programId ? (
+          <a
+            href={`/permission?program=${encodeURIComponent(programId)}`}
+            className="mt-3 inline-block text-sm font-medium text-violet-700 underline"
+          >
+            Need to request permission for another date?
+          </a>
+        ) : null}
       </header>
 
       {message ? (

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Attendance",
-  description: "Mark your attendance with a room code",
+  description: "Mark attendance or submit emergency permission requests",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
